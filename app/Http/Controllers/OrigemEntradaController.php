@@ -15,6 +15,9 @@ class OrigemEntradaController extends Controller
     public function store(Request $request)
     {
         $OrigemEntrada = new OrigemEntrada();
+        $OrigemEntrada::create(['name' => $request['nome']]);
+
+        redirect()->to(route('home-origem-entrada'));
     }
 
     public function update(Request $request, $id)

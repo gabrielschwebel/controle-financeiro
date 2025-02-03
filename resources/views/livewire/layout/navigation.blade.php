@@ -33,13 +33,15 @@ new class extends Component {
                         {{ __('Dashboard') }}
                     </x-nav-link>
 
-                    <x-nav-link wire:navigate>
+                    <x-nav-link :href="route('home-entrada')" wire:navigate :active="request()->routeIs(['home-entrada','create-entrada','home-origem-entrada'])">
                         {{ __('Entradas') }}
                     </x-nav-link>
 
-                    <x-nav-link wire:navigate>
+                    <x-nav-link wire:navigate >
                         {{ __('Despesas') }}
                     </x-nav-link>
+
+                    
 
                 </div>
             </div>
@@ -68,7 +70,7 @@ new class extends Component {
                         <x-dropdown-link :href="route('profile')" wire:navigate>
                             {{ __('Meu perfil') }}
                         </x-dropdown-link>
-                        <x-dropdown-link :href="route('profile')" wire:navigate>
+                        <x-dropdown-link :href="route('home-settings')" wire:navigate>
                             {{ __('Configurações') }}
                         </x-dropdown-link>
 

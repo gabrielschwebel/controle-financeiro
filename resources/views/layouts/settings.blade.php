@@ -11,6 +11,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -31,9 +32,9 @@
         <!-- Menu de opções que será mostrado ao clicar -->
         <div id="menuOptions" class="fixed bottom-20 right-4 hidden bg-white shadow-lg rounded-lg p-4 space-y-2">
             <div class="w-full flex flex-col justify-center gap-2">
-                <a href="{{route('create-entrada')}}">
-                <button class="block bg-gray-200 text-black p-2 rounded-lg hover:bg-gray-300 transition-all">Nova
-                    entrada</button>
+                <a href="{{ route('create-entrada') }}">
+                    <button class="block bg-gray-200 text-black p-2 rounded-lg hover:bg-gray-300 transition-all">Nova
+                        entrada</button>
                 </a>
                 <button class="block bg-gray-200 text-black p-2 rounded-lg hover:bg-gray-300 transition-all">Nova
                     despesa</button>
@@ -71,13 +72,31 @@
         <main class="py-12">
 
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                    {{ $slot }}
+                <div class="flex flex-row gap-3">
+                    <div class="w-1/4">
+                        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                            <div class="flex flex-col gap-2 justify-start">
+                                <x-setting-link :href="route('home-origem-entrada')" :active="request()->routeIs(['home-origem-entrada','create-origem-entrada'])" wire:navigate>
+                                   <span>Origens de entradas</span> 
+                                </x-setting-link>
+                                
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-3/4 bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+
+                        {{ $slot }}
+
+                    </div>
                 </div>
+
             </div>
 
         </main>
     </div>
+    
 </body>
 
 </html>
